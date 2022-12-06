@@ -9,7 +9,7 @@ jobs:
       - checkout
       - 
         run:
-          comand:
+          command:
             sudo apt-get update --allow-insecure-repositories
             # install DumpsterDiver here
             echo "installing pip and running DumpsterDiver"
