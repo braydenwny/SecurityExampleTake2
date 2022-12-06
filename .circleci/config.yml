@@ -17,9 +17,8 @@ jobs:
             git clone https://github.com/securing/DumpsterDiver.git
             cd DumpsterDiver
             pip install -r requirements.txt
-            python3 DumpsterDiver.py -p /home/circleci/spring-rest-helloworld --min-key
- 40 --max-key 40 --entropy 4.3
-         name: "dumpster diver"
+            python3 DumpsterDiver.py -p /home/circleci/spring-rest-helloworld --min-key 40 --max-key 40 --entropy 4.3
+            name: "dumpster diver"
         restore_cache: 
           key: "spring-rest-helloworld-{{ checksum \"pom.xml\" }}"
       - 
