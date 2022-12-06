@@ -11,16 +11,15 @@ jobs:
         run:
           command:
             sudo apt-get update --allow-insecure-repositories
-            # install DumpsterDiver here
             echo "installing pip and running DumpsterDiver"
             sudo apt-get install pip
             git clone https://github.com/securing/DumpsterDiver.git
             cd DumpsterDiver
             pip install -r requirements.txt
             python3 DumpsterDiver.py -p /home/circleci/spring-rest-helloworld --min-key 40 --max-key 40 --entropy 4.3
-            name: "dumpster diver"
+          name: "dumpster diver"
       -
-          restore_cache: 
+        restore_cache: 
           key: "spring-rest-helloworld-{{ checksum \"pom.xml\" }}"
       - 
         run: "mvn dependency:go-offline"
@@ -28,7 +27,7 @@ jobs:
         save_cache: 
           key: "circleci-demo-java-spring-{{ checksum \"pom.xml\" }}"
           paths: 
-            - ~/.m2
+             - ~/.m2
       - 
         run: "mvn package"
       - 
